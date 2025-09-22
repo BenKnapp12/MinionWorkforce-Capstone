@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
-    "start": "npx prisma generate && node index.js",
+    "start": "npx prisma generate && npx prisma db seed && node index.js",
     "seed": "npx prisma db seed"
   },
   "dependencies": {
