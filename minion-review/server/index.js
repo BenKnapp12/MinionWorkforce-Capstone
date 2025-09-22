@@ -3,7 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import jwt from 'jsonwebtoken';
 import { PrismaClient } from '@prisma/client';
-import authRoutes from './routes/auth.js'; // ✅ use import instead of require
+import authRoutes from './routes/auth.js';
 
 dotenv.config();
 const app = express();
@@ -11,7 +11,7 @@ const prisma = new PrismaClient();
 
 app.use(cors());
 app.use(express.json());
-app.use('/api', authRoutes); // ✅ mount auth routes
+app.use('/api', authRoutes);
 
 // 🔐 JWT Middleware
 function verifyToken(req, res, next) {
@@ -154,6 +154,13 @@ app.get('/leaderboard', async (req, res) => {
   }
 });
 
-app.listen(4000, () => {
-  console.log('🚀 Server running on http://localhost:4000');
+// ❤️ Health Check
+app.get('/health', (req, res) => {
+  res.send('OK');
+});
+
+// ✅ Port binding for Render
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => {
+  console.log(`🚀 Server running on port ${PORT}`);
 });
