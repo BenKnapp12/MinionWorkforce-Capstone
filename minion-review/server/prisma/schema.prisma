@@ -29,11 +29,14 @@ model Review {
   id        Int     @id @default(autoincrement())
   rating    Int
   comment   String
+  sentiment String  
   minionId  Int
   villainId Int
   minion    Minion  @relation(fields: [minionId], references: [id])
   villain   Villain @relation(fields: [villainId], references: [id])
 }
+
+
 model User {
   id       Int    @id @default(autoincrement())
   username String @unique

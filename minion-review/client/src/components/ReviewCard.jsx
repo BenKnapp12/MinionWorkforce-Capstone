@@ -1,5 +1,6 @@
 import React from 'react';
 import './ReviewCard.css';
+import VillainBadge from './VillainBadge.jsx'; // ✅ Make sure this path is correct
 
 const sentimentEmojiMap = {
   positive: '🌟',
@@ -29,7 +30,10 @@ export default function ReviewCard({ review, index }) {
         <h3>{minion.name}</h3>
         <p className="stars">{'★'.repeat(rating)}</p>
         {comment && <p className="comment">"{comment}"</p>}
-        <p className="villain-tag">Tag: {villain.name}</p>
+
+        {/* Villain Badge */}
+        <VillainBadge villain={villain} />
+
         <div className="traits">
           <span>🧬 Chaos: {minion.chaosLevel}</span>
           <span>🍌 Bananas: {minion.bananaAffinity}</span>
@@ -39,3 +43,12 @@ export default function ReviewCard({ review, index }) {
     </div>
   );
 }
+<img
+  src={villain.imageUrl}
+  alt={`Test image for ${villain.name}`}
+  style={{ width: '100px', height: '100px', border: '2px solid red' }}
+  onError={(e) => {
+    console.warn('Villain image failed:', e.target.src);
+    e.target.src = '/villains/default.png';
+  }}
+/>
