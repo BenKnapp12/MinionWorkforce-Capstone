@@ -1,0 +1,71 @@
+/* === Login Container === */
+.login-form {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* === Villain Avatar Animation === */
+.animate-bounce {
+  animation: bounce 1s infinite ease-in-out;
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* === Input Fields === */
+.login-form input {
+  border: 1px solid #ccc;
+  padding: 0.75rem;
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.login-form input:focus {
+  border-color: #9333ea;
+  box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.3);
+  outline: none;
+}
+
+/* === Login Button === */
+.login-button {
+  background: linear-gradient(135deg, #6b21a8, #9333ea);
+  color: white;
+  padding: 0.75rem;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.login-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(147, 51, 234, 0.4);
+}
+.login-button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* === Error Message === */
+.login-error {
+  color: #ef4444;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* === Toast Container Override (optional) === */
+.Toastify__toast {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 0.95rem;
+}

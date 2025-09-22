@@ -1,0 +1,31 @@
+/* === Home Tab Layout === */
+.home-minion-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.home-minion-card {
+  background: linear-gradient(to right, #fff8dc, #fef3c7);
+  border: 2px solid #f9e000;
+  border-radius: 20px;
+  padding: 1rem;
+  width: 160px;
+  text-align: center;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  animation: bounceIn 0.6s ease forwards;
+}
+
+.home-minion-card:hover {
+  transform: scale(1.05);
+}
+
+.home-minion-card .stars {
+  color: #facc15;
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  animation: twinkle 1s infinite alternate;
+}

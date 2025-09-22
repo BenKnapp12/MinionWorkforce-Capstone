@@ -1,0 +1,171 @@
+/* === Nav Highlight === */
+nav a[href="/top-minions"] {
+  font-weight: bold;
+  text-shadow: 0 0 6px #f9e000;
+  animation: flicker 1.5s infinite alternate;
+}
+
+@keyframes flicker {
+  0% { opacity: 0.8; text-shadow: 0 0 4px #f9e000; }
+  100% { opacity: 1; text-shadow: 0 0 12px red; }
+}
+
+/* === Page Container === */
+.podium-wrapper {
+  background-color: #0d0d0d;
+  background-image: linear-gradient(to bottom, #0d0d0d, #1a1a1a),
+                    url("https://i.imgur.com/1zQZ1Zy.gif");
+  background-blend-mode: overlay;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 3rem 1rem;
+  min-height: 100vh;
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.top-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #f9e000;
+  text-shadow: 0 0 12px #f9e000, 0 0 24px red;
+  margin-bottom: 2rem;
+  animation: flicker 2s infinite alternate;
+}
+
+/* === Podium Layout === */
+.podium-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.flame-card {
+  width: 180px;
+  padding: 1rem;
+  border-radius: 16px;
+  background: linear-gradient(to bottom, #222, #111);
+  box-shadow: 0 0 24px rgba(255, 0, 0, 0.3);
+  animation: riseIn 1s ease forwards;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.flame-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 32px rgba(255, 255, 0, 0.6);
+}
+
+/* === Podium Elevation === */
+.rank-1 { transform: translateY(-40px); z-index: 3; }
+.rank-2 { transform: translateY(-20px); z-index: 2; }
+.rank-3 { transform: translateY(-20px); z-index: 1; }
+
+/* === Avatar === */
+.flame-avatar-wrapper {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+}
+
+.flame-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #f9e000;
+  box-shadow: 0 0 16px rgba(255, 255, 0, 0.6);
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+
+/* === Particle Aura === */
+.flame-particles {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.2), transparent);
+  animation: shimmerAura 3s infinite ease-in-out;
+  z-index: -1;
+}
+
+/* === Flame Overlay === */
+.flame-overlay {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 80px;
+  background: url("https://i.imgur.com/3oKIeZV.gif") center/contain no-repeat;
+  pointer-events: none;
+  z-index: -2;
+  opacity: 0.8;
+}
+
+/* === Rank Badge === */
+.rank-badge {
+  position: absolute;
+  bottom: -12px;
+  right: -12px;
+  background: #f9e000;
+  color: black;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 50%;
+  font-size: 0.9rem;
+  box-shadow: 0 0 8px rgba(255, 255, 0, 0.6);
+  animation: badgeBounce 1.5s infinite ease-in-out;
+}
+
+/* === Minion Info === */
+.flame-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  color: #facc15;
+  text-shadow: 0 0 6px #facc15;
+}
+
+.flame-meta {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/* === Ring Colors === */
+.flame-ring-gold { border: 3px solid gold; box-shadow: 0 0 32px gold; }
+.flame-ring-silver { border: 3px solid silver; box-shadow: 0 0 32px silver; }
+.flame-ring-bronze { border: 3px solid #cd7f32; box-shadow: 0 0 32px #cd7f32; }
+
+/* === Animations === */
+@keyframes riseIn {
+  from { transform: translateY(60px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 12px rgba(255, 255, 0, 0.4); }
+  50% { box-shadow: 0 0 24px rgba(255, 255, 0, 0.8); }
+  100% { box-shadow: 0 0 12px rgba(255, 255, 0, 0.4); }
+}
+
+@keyframes shimmerAura {
+  0% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.6; }
+}
+
+@keyframes badgeBounce {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}

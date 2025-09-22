@@ -1,0 +1,265 @@
+/* === Structured Grid Layout === */
+.minion-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+/* === Base Card === */
+.collectible-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  animation: fadeSlideIn 0.6s ease forwards;
+  transition: transform 0.3s ease;
+}
+.collectible-card:hover {
+  transform: scale(1.04) rotate(-0.5deg);
+}
+
+/* === Tier Badge === */
+.tier-badge {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 0.3rem 0.6rem;
+  border-radius: 8px;
+  color: white;
+  background: linear-gradient(135deg, #6b21a8, #9333ea);
+  box-shadow: 0 0 8px rgba(107, 33, 168, 0.6);
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 6px rgba(107, 33, 168, 0.4); }
+  50% { box-shadow: 0 0 12px rgba(107, 33, 168, 0.8); }
+  100% { box-shadow: 0 0 6px rgba(107, 33, 168, 0.4); }
+}
+
+/* === Crown === */
+.crown {
+  position: absolute;
+  top: -0.8rem;
+  right: -0.6rem;
+  font-size: 1.8rem;
+  animation: crownBounce 1.5s infinite ease-in-out;
+}
+@keyframes crownBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* === Gadgets === */
+.gadget {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 1.5rem;
+  animation: gadgetFloat 3s infinite ease-in-out;
+}
+@keyframes gadgetFloat {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+/* === Medals === */
+.medal-row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+.medal {
+  font-size: 0.9rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #fff, #facc15);
+  font-weight: bold;
+  animation: medalShine 2s infinite alternate;
+}
+@keyframes medalShine {
+  from { opacity: 0.8; transform: scale(1); }
+  to { opacity: 1; transform: scale(1.1); }
+}
+
+/* === Stat Bars === */
+.stat-bars {
+  margin-top: 0.5rem;
+}
+.stat-bar {
+  display: flex;
+  flex-direction: column;
+}
+.stat-bar label {
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+}
+.stat-bar .bar {
+  background: #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 8px;
+}
+.stat-bar .bar div {
+  height: 100%;
+  background: linear-gradient(to right, #6b21a8, #9333ea);
+  transition: width 0.6s ease;
+}
+
+/* === Claim / Reserve Button === */
+.claim-button {
+  background: linear-gradient(135deg, #6b21a8, #9333ea);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-top: 0.75rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.claim-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(107, 33, 168, 0.4);
+}
+.claim-button::after {
+  content: "🛎️";
+  margin-left: 0.5rem;
+}
+
+/* === Trait Glow Effects === */
+.chaos-glow {
+  box-shadow: 0 0 12px 2px rgba(255, 0, 0, 0.6);
+}
+.banana-glow {
+  box-shadow: 0 0 12px 2px rgba(255, 255, 0, 0.6);
+}
+.success-glow {
+  box-shadow: 0 0 12px 2px rgba(0, 255, 0, 0.6);
+}
+
+/* === Entrance Animation === */
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === Optional Confetti Burst === */
+.collectible-card:hover::after {
+  content: "🎉";
+  position: absolute;
+  bottom: -1rem;
+  right: -1rem;
+  font-size: 1.5rem;
+  animation: confettiBurst 1s ease;
+}
+@keyframes confettiBurst {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.5); opacity: 1; }
+  100% { transform: scale(1); opacity: 0; }
+}
+
+/* === Minion Avatar === */
+.minion-avatar {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid #6b21a8;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  margin-bottom: 0.5rem;
+}
+
+/* === Trait Summary === */
+.trait-summary {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #4b5563;
+}
+.trait-summary span {
+  margin-right: 1rem;
+}
+
+/* === Review Thread === */
+.review-thread {
+  margin-top: 1rem;
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+  scrollbar-width: thin;
+}
+.review-thread .review-card {
+  background: #fff;
+  border-left: 4px solid #6b21a8;
+  border-radius: 12px;
+  padding: 0.75rem;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  font-size: 0.85rem;
+}
+.review-thread .review-card:nth-child(even) {
+  background: #f9fafb;
+}
+
+/* === Mobile Adjustments === */
+@media (max-width: 480px) {
+  .minion-avatar {
+    width: 100px;
+    height: 100px;
+  }
+  .claim-button {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+  }
+  .review-thread {
+    max-height: 200px;
+  }
+}
+
+/* === Minion Card Grid Layout === */
+.minion-card-grid {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+/* === Minion Info Column === */
+.minion-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.minion-info h3 {
+  margin-top: 0.5rem;
+}
+.minion-info .trait-summary {
+  margin-top: 0.5rem;
+}
+.reserved-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 1rem;
+}
+.scroll-highlight {
+  animation: glow 2s ease-in-out;
+  box-shadow: 0 0 12px rgba(147, 51, 234, 0.6);
+  border-radius: 12px;
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 0 rgba(147, 51, 234, 0); }
+  50% { box-shadow: 0 0 12px rgba(147, 51, 234, 0.6); }
+  100% { box-shadow: 0 0 0 rgba(147, 51, 234, 0); }
+}

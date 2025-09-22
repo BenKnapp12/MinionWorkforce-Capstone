@@ -1,0 +1,41 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Minion {
+  id             Int      @id @default(autoincrement())
+  name           String
+  imageUrl       String
+  bananaAffinity Int      @default(0)
+  chaosLevel     Int      @default(0)
+  missionSuccess Int      @default(0)
+  reviews        Review[]
+}
+
+model Villain {
+  id       Int      @id @default(autoincrement())
+  name     String
+  avatar   String
+  imageUrl String
+  reviews  Review[]
+}
+
+model Review {
+  id        Int     @id @default(autoincrement())
+  rating    Int
+  comment   String
+  minionId  Int
+  villainId Int
+  minion    Minion  @relation(fields: [minionId], references: [id])
+  villain   Villain @relation(fields: [villainId], references: [id])
+}
+model User {
+  id       Int    @id @default(autoincrement())
+  username String @unique
+  password String
+}

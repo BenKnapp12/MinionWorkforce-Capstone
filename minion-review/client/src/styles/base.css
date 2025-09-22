@@ -1,0 +1,35 @@
+/* === Base Reset & Typography === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Fredoka One', 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at top left, #fffbe6, #fef3c7);
+  color: #2c2c2c;
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+  animation: fadeInBody 1s ease-in;
+}
+
+/* === Headings & Titles === */
+h1, h2, h3 {
+  font-family: 'Orbitron', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #6b21a8;
+  text-shadow: 0 0 6px rgba(107, 33, 168, 0.3);
+}
+
+/* === Page Fade-In === */
+@keyframes fadeInBody {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.fade-in {
+  animation: fadeInBody 1s ease-in;
+}

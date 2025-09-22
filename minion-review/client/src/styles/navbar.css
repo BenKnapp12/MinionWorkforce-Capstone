@@ -1,0 +1,51 @@
+/* === Cinematic Navbar === */
+.main-nav {
+  background: linear-gradient(90deg, #6b21a8, #8b5cf6, #6b21a8);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  border-bottom: 4px solid #f9e000;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+  animation: fadeInBody 1s ease-in;
+}
+
+/* === Nav Links === */
+.nav-link {
+  color: white;
+  position: relative;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  background: linear-gradient(to right, #7c3aed, #9333ea);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+.nav-link:hover {
+  color: #f9e000;
+  background: linear-gradient(to right, #facc15, #f59e0b);
+  box-shadow: 0 0 12px rgba(255, 255, 0, 0.6);
+  transform: scale(1.05);
+}
+
+/* === Highlighted Tab === */
+.highlight-link {
+  background: linear-gradient(to right, #f59e0b, #ef4444);
+  color: black;
+  font-weight: bold;
+  box-shadow: 0 0 16px rgba(255, 0, 0, 0.6);
+  animation: flicker 1.5s infinite alternate;
+}
+
+@keyframes flicker {
+  0% { opacity: 0.8; text-shadow: 0 0 4px #f9e000; }
+  100% { opacity: 1; text-shadow: 0 0 12px red; }
+}

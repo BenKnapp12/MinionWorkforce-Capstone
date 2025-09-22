@@ -1,0 +1,50 @@
+.review-card {
+  background: #fdf6f0;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.review-card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.review-content h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.stars {
+  color: #facc15;
+  font-size: 1.2rem;
+  margin: 0.25rem 0;
+}
+
+.comment {
+  font-style: italic;
+  color: #444;
+}
+
+.villain-tag {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 0.25rem;
+}
+
+.traits {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.85rem;
+  color: #555;
+  margin-top: 0.5rem;
+}
+
+.traits span {
+  margin: 2px 0;
+}

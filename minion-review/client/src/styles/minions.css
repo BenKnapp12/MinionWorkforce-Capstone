@@ -1,0 +1,92 @@
+/* === Minion Grid === */
+.minion-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* === Minion Cards === */
+.minion-card {
+  background: linear-gradient(to right, #fff8dc, #fef3c7);
+  border: 2px solid #f9e000;
+  border-radius: 20px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: bounceIn 0.6s ease forwards;
+}
+
+.minion-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.95); opacity: 0; }
+  60% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+/* === Minion Avatars === */
+.minion-avatar {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: spinIn 1s ease;
+  border: 3px solid #6b21a8;
+  z-index: 1;
+}
+
+.minion-avatar:hover {
+  transform: scale(1.1);
+}
+
+@keyframes spinIn {
+  from { transform: rotate(-360deg); opacity: 0; }
+  to { transform: rotate(0deg); opacity: 1; }
+}
+
+/* === Avatar Glow & Rating === */
+.minion-avatar::after {
+  content: attr(data-rating);
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  background: red;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 6px;
+  z-index: 2;
+}
+
+/* === Rating-Based Glow === */
+.rating-1-2 { box-shadow: 0 0 8px rgba(255, 223, 0, 0.4); }
+.rating-3-4 { box-shadow: 0 0 12px rgba(255, 223, 0, 0.7); animation: pulseGlow 1.5s infinite alternate; }
+.rating-5 { box-shadow: 0 0 18px rgba(255, 223, 0, 1), 0 0 32px rgba(255, 0, 255, 0.3); animation: spinAura 2s infinite linear, pulseGlow 1.5s infinite alternate; }
+
+@keyframes pulseGlow {
+  from { box-shadow: 0 0 12px rgba(255, 223, 0, 0.6); }
+  to { box-shadow: 0 0 18px rgba(255, 223, 0, 1); }
+}
+
+@keyframes spinAura {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* === Trait-Based Glow === */
+.chaos-glow { box-shadow: 0 0 16px rgba(255, 0, 0, 0.6); }
+.banana-glow { box-shadow: 0 0 16px rgba(255, 255, 0, 0.6); }
+.success-glow { box-shadow: 0 0 16px rgba(0, 255, 0, 0.6); }
+
+/* === Leaderboard Rings === */
+.gold-ring { border: 3px solid gold; animation: bounceIn 1s ease; }
+.silver-ring { border: 3px solid silver; }
+.bronze-ring { border: 3px solid #cd7f32; }
