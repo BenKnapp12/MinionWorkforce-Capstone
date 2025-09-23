@@ -14,7 +14,7 @@ export default function Signup() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleSignup = async (e) => {
+  const handleSignup = async (e) => {//
     e.preventDefault();
     setLoading(true);
     try {
