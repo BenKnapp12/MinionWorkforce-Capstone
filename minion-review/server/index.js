@@ -159,6 +159,11 @@ app.get('/health', (req, res) => {
   res.send('OK');
 });
 
+// 🚦 Root sanity check
+app.get('/', (req, res) => {
+  res.send('Minion Review Server is running!');
+});
+
 // ✅ Port binding for Render
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
