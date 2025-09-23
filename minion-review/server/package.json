@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "nodemon index.js",
     "start": "node index.js",
-    "build": "npm run generate && npm run seed",
-    "generate": "npm exec prisma generate",
+    "build": "npm run seed",
     "seed": "node prisma/seed.js"
   },
   "dependencies": {

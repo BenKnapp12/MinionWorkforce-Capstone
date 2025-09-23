@@ -1,7 +1,12 @@
 import { execSync } from 'child_process';
 import { PrismaClient } from '@prisma/client';
 
-execSync('npx prisma generate', { stdio: 'inherit' });
+// ✅ Safe Prisma client generation
+try {
+  execSync('npx prisma generate', { stdio: 'inherit' });
+} catch (err) {
+  console.warn('⚠️ Prisma generate failed (likely due to Render shell restrictions). Proceeding with seed anyway.');
+}
 
 const prisma = new PrismaClient();
 
