@@ -1,6 +1,7 @@
 {
   "name": "minion-review-client",
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -21,5 +22,8 @@
     "postcss": "^8.4.31",
     "tailwindcss": "^3.4.1",
     "vite": "^5.4.20"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
