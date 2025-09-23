@@ -1,14 +1,16 @@
-import { execSync } from 'child_process';
 import { PrismaClient } from '@prisma/client';
-
-// ✅ Safe Prisma client generation
-try {
-  execSync('npx prisma generate', { stdio: 'inherit' });
-} catch (err) {
-  console.warn('⚠️ Prisma generate failed (likely due to Render shell restrictions). Proceeding with seed anyway.');
-}
+import { Migrate } from '@prisma/migrate';
 
 const prisma = new PrismaClient();
+
+// ✅ Safe migration deploy without shell
+try {
+  const migrate = new Migrate();
+  await migrate.deploy();
+  console.log('✅ Prisma migrations deployed');
+} catch (err) {
+  console.warn('⚠️ Migration deploy failed (likely already applied or restricted). Proceeding with seed anyway.');
+}
 
 const minionData = [
   { name: 'Blarb', imageUrl: '/minions/Blarb.png' },

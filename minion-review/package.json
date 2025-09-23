@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@prisma/migrate": "^6.16.2"
+  }
+}
