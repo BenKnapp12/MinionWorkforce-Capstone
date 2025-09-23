@@ -1,4 +1,8 @@
+import { execSync } from 'child_process';
 import { PrismaClient } from '@prisma/client';
+
+execSync('npx prisma generate', { stdio: 'inherit' });
+
 const prisma = new PrismaClient();
 
 const minionData = [
