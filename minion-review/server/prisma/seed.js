@@ -129,6 +129,7 @@ async function main() {
         data: {
           rating,
           comment,
+          sentiment, // ✅ Added to match your schema
           minionId: minion.id,
           villainId: villain.id
         }
