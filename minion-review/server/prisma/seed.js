@@ -1,5 +1,6 @@
 import { PrismaClient } from '@prisma/client';
-import { Migrate } from '@prisma/migrate';
+import migratePkg from '@prisma/migrate'; // ✅ CommonJS-safe import
+const { Migrate } = migratePkg;
 
 const prisma = new PrismaClient();
 
