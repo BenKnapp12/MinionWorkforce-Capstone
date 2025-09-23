@@ -4,13 +4,14 @@ const { Migrate } = migratePkg;
 
 const prisma = new PrismaClient();
 
-// ✅ Safe migration deploy without shell
-try {
-  const migrate = new Migrate();
-  await migrate.deploy();
-  console.log('✅ Prisma migrations deployed');
-} catch (err) {
-  console.warn('⚠️ Migration deploy failed (likely already applied or restricted). Proceeding with seed anyway.');
+async function runMigrations() {
+  try {
+    const migrate = new Migrate();
+    await migrate.deploy();
+    console.log('✅ Prisma migrations deployed');
+  } catch (err) {
+    console.warn('⚠️ Migration deploy failed (likely already applied or restricted). Proceeding with seed anyway.');
+  }
 }
 
 const minionData = [
@@ -87,6 +88,8 @@ function getComment(sentiment, minion) {
 }
 
 async function main() {
+  await runMigrations();
+
   await prisma.review.deleteMany();
   await prisma.minion.deleteMany();
   await prisma.villain.deleteMany();
